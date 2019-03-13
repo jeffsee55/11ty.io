@@ -1,0 +1,36 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: ''
+webhook_url: 
+sections:
+- type: directory
+  path: docs
+  label: Documentation
+  create: all
+  match: "**/*.md"
+  templates:
+  - documentation-page
+- type: heading
+  label: Data
+- type: directory
+  path: _data/sites
+  label: Sites
+  create: documents
+  match: "*"
+  new_doc_ext: json
+  templates:
+  - site
+upload_dir: img
+public_path: "/img"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+build:
+  preview_command: eleventy --serve
+  publish_command: eleventy -d dist
+  preview_env:
+  - ELEVENTY_ENV=staging
+  preview_output_directory: dist
+  output_directory: dist
+  instant_preview_command: vuepress dev -p 8080 -h 0.0.0.0
