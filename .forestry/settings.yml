@@ -10,7 +10,7 @@ sections:
   create: all
   match: "**/*.md"
   templates:
-  - documentation-page
+  - page
 - type: heading
   label: Data
 - type: directory
@@ -27,10 +27,9 @@ front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
 build:
-  preview_command: eleventy --serve
-  publish_command: eleventy -d dist
   preview_env:
   - ELEVENTY_ENV=staging
-  preview_output_directory: dist
-  output_directory: dist
-  instant_preview_command: vuepress dev -p 8080 -h 0.0.0.0
+  preview_output_directory: _site
+  instant_preview_command: npx eleventy --serve --output=_site
+  preview_docker_image: node:10
+  mount_path: "/srv"

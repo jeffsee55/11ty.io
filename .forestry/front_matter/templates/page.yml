@@ -1,0 +1,17 @@
+---
+label: Page
+hide_body: false
+display_field: subtitle
+fields:
+- type: text
+  label: subtitle
+  name: subtitle
+- type: text
+  name: menusectionname
+  label: menuSectionName
+- type: list
+  name: submenusortorder
+  label: submenuSortOrder
+- type: tag_list
+  name: tags
+  label: tags
