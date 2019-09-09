@@ -26,10 +26,16 @@ public_path: "/img"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
+instant_preview: true
 build:
   preview_env:
   - ELEVENTY_ENV=staging
   preview_output_directory: _site
-  instant_preview_command: npx eleventy --serve --output=_site
+  install_dependencies_command: npm install
   preview_docker_image: node:10
   mount_path: "/srv"
+  working_dir: "/srv"
+  instant_preview_command: npx eleventy --serve --output=_site
+  publish_command: vuepress build -d .vuepress/dist
+  output_directory: ".vuepress/dist"
+  preview_command: vuepress build -d .vuepress/dist
